@@ -1,0 +1,27 @@
+.form-bg{
+   background-color: #9d08fe;
+   /* width: 100vw; */
+   height: 100%;
+   padding: 20px 0;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+
+   
+}
+
+.form-bg form{
+  height: 680px;
+  width: 500px;
+  overflow: hidden;
+ 
+}
+.icon {
+  fill:yellow; /* Specify your desired color using a color code or name */
+}
+.icon-container {
+  display: inline-block;
+  color: #ff0000;
+ 
+   /* Specify your desired color using a color code or name */
+}
