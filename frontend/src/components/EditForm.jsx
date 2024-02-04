@@ -1,16 +1,13 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setUser } from "../slices/authSlice";
 import { updateUser } from "../services/authAPI";
-// import { signUp } from "../services/authAPI";
 
-
-// import { useNavigate } from "react-router-dom";
   function EditForm({User,setEdit}) {
     const {Name,Email,Phone,city,state} = User
-//    const {Regdata} =  useSelector((state)=>state.auth)
+    
+   const {token} =  useSelector((state) => state.auth)
    const dispatch = useDispatch()
-//    const navigate= useNavigate()
-//    const {Name,Email,Password,Phone,city,state} = Regdata;
+
 
    const handleSubmit = (e)=>{
     e.preventDefault();
@@ -18,7 +15,7 @@ import { updateUser } from "../services/authAPI";
        return
     }
     
-       dispatch(updateUser(User))
+       dispatch(updateUser(User,token))
        setEdit(false)
        
    }

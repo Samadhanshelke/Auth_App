@@ -6,12 +6,12 @@ import { useState } from "react";
 import EditForm from "../components/EditForm";
 
 function Profile() {
-  const { User } = useSelector((state) => state.auth);
+  const { User,token } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   const navigate = useNavigate()
  const [edit,setEdit] = useState(false)
   const handleDelete =  ()=>{
-    dispatch(DeleteAccount(User.Email,User._id,navigate))
+    dispatch(DeleteAccount(User.Email,User._id,navigate,token))
   }
   if(edit){
     return <EditForm User={User} setEdit={setEdit}/>

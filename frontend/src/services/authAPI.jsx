@@ -81,10 +81,13 @@ export function logout(navigate){
   }
 }
 
-export function DeleteAccount(Email,id,navigate){
+export function DeleteAccount(Email,id,navigate,token){
   return async (dispatch)=>{
     try {
-      const response = await axios.post(`${URL}/deleteAccount`,{Email,id})
+      const response = await axios.post(`${URL}/deleteAccount`,{Email,id},
+       { headers: {
+        Authorization: `Bearer ${token}`,
+    }},)
       if(response.data.success){
         localStorage.removeItem("user")
         localStorage.removeItem("token")
@@ -102,10 +105,14 @@ export function DeleteAccount(Email,id,navigate){
   }
 }
 
-export function updateUser(User){
+export function updateUser(User,token){
   return async (dispatch)=>{
     try {
-      const response = await axios.post(`${URL}/updateUser`,User)
+      const response = await axios.post(`${URL}/updateUser`,User,{
+        headers: {
+          Authorization: `Bearer ${token}`,
+      },
+      })
       console.log(response,'response');
       if(response.data.success){
         dispatch(setUser(response.data.User))
