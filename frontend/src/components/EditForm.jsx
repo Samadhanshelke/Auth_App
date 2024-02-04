@@ -4,16 +4,17 @@ import { updateUser } from "../services/authAPI";
 
   function EditForm({User,setEdit}) {
     const {Name,Email,Phone,city,state} = User
-    
+
    const {token} =  useSelector((state) => state.auth)
    const dispatch = useDispatch()
 
-
-   const handleSubmit = (e)=>{
-    e.preventDefault();
-    if(Name == "" || Email == "" || Phone == "" || city == "" || state  == ""){
+  const updatedUser = User
+  console.log(updatedUser,'updateduser')
+  const handleSubmit = (e)=>{
+     e.preventDefault();
+     if(Name === "" || Email === "" || Phone === "" || city === "" || state  === ""){
        return
-    }
+      }
     
        dispatch(updateUser(User,token))
        setEdit(false)
@@ -22,7 +23,7 @@ import { updateUser } from "../services/authAPI";
   
     return (
       <div className="form-bg overflow-hidden">
-          <form className="w-75 py-4 bg-white rounded overflow-hidden" onClick={handleSubmit}>
+          <form className="w-75 py-4 bg-white rounded overflow-hidden" onClick={()=>handleSubmit}>
                 <h1 className="text-center">Update Details</h1>
                     <div className="row justify-content-center align-items-center overflow-hidden">
                       <div className="col-md-6 g-4">
@@ -49,7 +50,7 @@ import { updateUser } from "../services/authAPI";
               
               
                         <div className="text-center mt-3">
-                          <button className="btn btn-primary" type="submit">Submit form</button>
+                          <button className="btn btn-primary" type="button" onClick={handleSubmit}>Submit form</button>
                         </div>
                       </div>
                     </div>
