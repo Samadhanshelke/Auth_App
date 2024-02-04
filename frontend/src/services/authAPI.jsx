@@ -6,7 +6,7 @@ import toast from "react-hot-toast";
 import { setIsLoggedIn, setToken, setUser } from "../slices/authSlice";
 
 // const URL ="http://localhost:3001/api/auth"
-const URL = 'https://basic-auth-backend.onrender.com'
+const URL = 'https://basic-auth-backend.onrender.com/api/auth'
 
 
 
